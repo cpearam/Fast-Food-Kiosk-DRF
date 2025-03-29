@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     #third-party apps
     'rest_framework',
+    'drf_spectacular',
     
     #apps
     'kiosk',
@@ -128,3 +129,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'kiosk.StaffMember'
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
