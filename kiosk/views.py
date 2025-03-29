@@ -12,9 +12,9 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     
 class ComboMealViewSet(viewsets.ModelViewSet):
-    queryset = ComboMeal.objects.all()
+    queryset = ComboMeal.objects.prefetch_related('products')
     serializer_class = ComboMealSerializer
     
 class OrderViewSet(viewsets.ModelViewSet):
-    queryset = Order.objects.all()
+    queryset = Order.objects.prefetch_related('items__product', 'items__combomeal')
     serializer_class = OrderSerializer
